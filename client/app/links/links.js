@@ -1,5 +1,12 @@
 angular.module('shortly.links', [])
 
 .controller('LinksController', function ($scope, Links) {
-  // Your code here
+
+  $scope.getAll = function() {
+    $scope.links = Link.getLinks($scope.user);
+  };
+
+  $scope.addOne = function() {
+    var link = Link.addOne($scope.link);
+  };
 });
