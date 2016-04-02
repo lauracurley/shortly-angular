@@ -9,23 +9,22 @@ angular.module('shortly.services', [])
       data: links
     })
     .then(function (resp) {
-      console.log('LII--------------------------INKS', resp.data.links);
-      return resp.data.links;
+      console.log('LII--------------------------INKS', resp.data);
+      return resp.data;
     });
   };
 
-  var addOne = function(link) {
+  var addOne = function(url) {
     return $http({
       method: 'POST',
       url: '/api/links',
-      data: link
+      data: url
     })
     .then(function (resp) {
-      return resp.data.createdLink;
+      console.log('addOne respData !!!!!!!!!!!!!!!', resp.data);
+      return resp;
     });
   };
-
-
 
   return {
     getAll: getAll,

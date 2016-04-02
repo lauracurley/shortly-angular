@@ -1,6 +1,12 @@
 <div id='container'>
-<!-- Your code here -->
+  <form ng-submit='addOne()'>
+      <input class='text' type='text' name='url' ng-model='data.url'>
+      <input class='text' type='text' name='title' ng-model='data.title'>
 
+      <input type='submit' value='Shorten' ng-model='url.'>
+  </form>
+  <!--img class='spinner' src='/spiffygif_46x46.gif'-->
+  <div class='message'></div>
 </div>
 
 

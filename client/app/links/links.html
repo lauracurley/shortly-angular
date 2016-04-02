@@ -1,15 +1,60 @@
 <div id='container' ng-controller='LinksController'>
   <nav>
-    
+    <ul>
+      <li><a href='#' class='index'>All Links</a></li>
+      <li><a href='#' class='create'>Shorten</a></li>
+    </ul>
   </nav>
-  <div class="links">
+  <div class="links" >
     <ul>
       <li ng-repeat="link in links" >
-        <h3>Something should be here{{link.description}}</h3>
-        <h3>{{link.inputLink}}</h3>
-        <h3>{{link.shortlyLink}}</h3>
-        <div class="pull-right">{{link.visits}}</div>
+        <!--h3>Something should be here{{link.title}}</h3-->
+        <div class='title'>{{link.title}}</div>
+
+        <!--h3>{{link.url}}</h3-->
+        <div class='original'>{{link.url}}</div>
+
+        <!--div class="pull-right">{{link.visits}}</div-->
+        <div class='visits pull-right'><span class='count'>{{link.visits}}</span>Visits</div>
+        <!--h3>{{link.shortlyLink}}</h3-->
+        <a href='{{baseUrl}}/{{code}}'>{{baseUrl}}/{{code}}</a>
       </li>
     </ul>
   </div>
 </div>
+
+<!--script id='layout' type='text/x-handlebars-template'>
+  <div class='navigation'>
+  <ul>
+    <li><a href='#' class='index'>All Links</a></li>
+    <li><a href='#' class='create'>Shorten</a></li>
+  </ul>
+  </div>
+  <div id='container'></div>
+</script>
+
+<script id='link' type='text/x-handlebars-template'>
+  <img src='/redirect_icon.png'/>
+  <div class='info'>
+    <div class='visits'><span class='count'>{{visits}}</span>Visits</div>
+    <div class='title'>{{title}}</div>
+    <div class='original'>{{url}}</div>
+    <a href='{{baseUrl}}/{{code}}'>{{baseUrl}}/{{code}}</a>
+  </div>
+</script>
+
+<script id='create' type='text/x-handlebars-template'>
+  <form>
+      <input class='text' type='text' name='url'>
+      <input type='submit' value='Shorten'>
+  </form>
+  <img class='spinner' src='/spiffygif_46x46.gif'>
+  <div class='message'></div>
+</script>
+
+<script>
+  window.Templates = {};
+  $('[type="text/x-handlebars-template"]').each(function(index, div){
+    Templates[div.id] = Handlebars.compile(div.innerHTML);
+  });
+</script-->
