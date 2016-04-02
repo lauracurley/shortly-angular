@@ -1,22 +1,22 @@
 angular.module('shortly.links', [])
 
 .controller('LinksController', function ($scope, Links) {
+  $scope.data = {};
 
-  $scope.data = [];
-  $scope.links = {}
 
-  $scope.getAll = function(links) {
-    var data = Link.getLinks(links);
-    data.forEach(function(item) {
-      $scope.links.push(item['url']);
-    });
-    console.log('This is scope.links in getAll on the links.js file', $scope.links);
-    return $scope.links;
+  var intialize = function() {
+    // var responseData = Link.getLinks(links);
+    Links.getAll()
+      .then(function(links) {
+        $scope.data.links = links;
+      });
+
+    console.log('This is scope.links in getAll on the links.js file', $scope.data.links);
+    return $scope.data;
   };
 
-  $scope.addOne = function(url) {
-    var data = Link.addOne(url);
-    console.log('Here is our link from our addOne method', data.url, data.title);
-    return data.url;
-  };
+  intialize();
+
+  
+
 });
