@@ -1,8 +1,14 @@
 <div id='container'>
-  <form ng-submit='addOne()'>
-      <input class='text' type='url' name='url' ng-model='link.url'>
+  <nav>
+    <ul>
+      <li><a href='#/links' class='index'>All Links</a></li>
+      <li><a href='#/shorten' class='create'>Shorten</a></li>
+    </ul>
+  </nav>
+  <form ng-submit='addLink()'>
+      <input class='text' type='url' name='link' ng-model='link.url'>
 
-      <input type='submit' value='Shorten' ng-model='url.'>
+      <input type='submit' value='Shorten'>
   </form>
   <!--img class='spinner' src='/spiffygif_46x46.gif'-->
   <div class='message'></div>

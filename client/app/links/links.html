@@ -1,13 +1,13 @@
 <div id='container' ng-controller='LinksController'>
   <nav>
     <ul>
-      <li><a href='#' class='index'>All Links</a></li>
-      <li><a href='#' class='create'>Shorten</a></li>
+      <li><a href='#/links' class='index'>All Links</a></li>
+      <li><a href='#/shorten' class='create'>Shorten</a></li>
     </ul>
   </nav>
   <div class="links" >
     <ul>
-      <li ng-repeat="link in links" >
+      <li ng-repeat="link in data.links" >
         <!--h3>Something should be here{{link.title}}</h3-->
         <div class='title'>{{link.title}}</div>
 
@@ -17,7 +17,7 @@
         <!--div class="pull-right">{{link.visits}}</div-->
         <div class='visits pull-right'><span class='count'>{{link.visits}}</span>Visits</div>
         <!--h3>{{link.shortlyLink}}</h3-->
-        <a href='{{baseUrl}}/{{code}}'>{{baseUrl}}/{{code}}</a>
+        <a href='{{link.baseUrl}}/{{link.code}}'>{{link.baseUrl}}/{{link.code}}</a>
       </li>
     </ul>
   </div>
